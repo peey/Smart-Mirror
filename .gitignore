@@ -1,2 +1,6 @@
+*.csv
 *.pyc
 __pycache__
+client/selfies
+Modules/file.mp3
+Modules/emails.csv

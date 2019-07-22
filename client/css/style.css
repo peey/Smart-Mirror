@@ -1,0 +1,79 @@
+body {
+	background-color:#000000;
+	font-family: calibri, ubuntu;
+	color: #fff;
+	font-size:20px; 
+	text-align:center; 
+}
+
+.text, .json, .image, .weather, .vc-parent {
+  display: table;
+  height: 100%;
+  text-align: center;
+}
+
+.text p, .json pre, .image img, .weather > section, .vc-child {
+  display: table-cell !important;
+  vertical-align: middle;
+}
+
+body pre {
+	font:monospace; 
+	text-align:left;
+	padding-left: 2em;
+}
+
+
+.content {
+  width: 80%;
+  margin: auto;
+}
+
+.news article {
+  padding: 1em;
+}
+
+.news p {
+	padding: 0 1em;
+}
+
+.news article > span {
+	background-size: cover;
+	background-position: center;
+}
+
+.weather-1-day {
+	height: 200px; 
+	width: 300px; 
+	margin: auto;
+}
+
+.weather-3-day {
+	height: 200px; 
+	width: 500px; 
+	margin: auto;
+}
+
+.weather-7-day {
+	height: 250px; 
+	width: 300px; 
+	margin: auto;
+}
+
+
+.tic-tac-toe table {
+  border-collapse: collapse;
+  margin: auto;
+}
+
+.tic-tac-toe td {
+  font-size: 4em;
+  width: 1.5em;
+  height: 1.5em;
+  text-align: center;
+  border: 3px solid white;
+}
+
+.weather * {
+	padding: 2px !important;
+}

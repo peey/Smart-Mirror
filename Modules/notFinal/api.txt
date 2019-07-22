@@ -1,0 +1,21 @@
+API KEY GOVT. OF INDIA:
+d610ebfac70d277eed44f38a594dbb96
+
+NewsAPI:
+eb684db927dc458f8907a8c5afa2b857
+&sortBy=%s
+
+SpeechAI Alternate api
+key="AIzaSyAcalCzUvPmmJ7CZBFOEWx2Z1ZSn4Vs1gg"
+AIzaSyCnl6MRydhw_5fLXIdASxkLJzcJh5iX0M4
+AIzaSyBOti4mM-6x9WDnZIjIeyEU21OpBXqWBgw
+AIzaSyC53OK59kFcMRMXtxxNujBUHU130A6XvZo
+
+https://services.google.com/fb/forms/speech-api-pricing-request/
+
+Google Static Image api
+AIzaSyDnOPEB0gow2PJU1NFcU9Fjj_EWkRj2HCo 
+
+Google GeoCode API
+AIzaSyBLZ9n9BB5zlLiqZnz0Q7f8sv8yU8axcoc
+"https://maps.googleapis.com/maps/api/geocode/json?address=%s&key=AIzaSyBLZ9n9BB5zlLiqZnz0Q7f8sv8yU8axcoc"

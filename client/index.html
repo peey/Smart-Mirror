@@ -1,0 +1,196 @@
+<html>
+<head>
+	<title> Websocks plis </title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/weather-icons.css" />
+	<link rel="stylesheet" href="css/weather-icons-wind.css" />
+</head>
+<body>
+	<div>
+		<div class="content text" data-bind="if: type() == 'text'"> 
+			<p data-bind="text: text"></p>
+		</div>
+		<div class="content json"  data-bind="if: type() == 'json'"> 
+			<pre data-bind="text: json"></pre>
+		</div>
+		<div class="content image"  data-bind="if: type() == 'image'">
+			<div class="vc-child">
+				<img data-bind="attr:{src: imageSrc}"/>
+			</div>
+		</div>
+		<div class="content tic-tac-toe vc-parent"  data-bind="if: type() == 'tic-tac-toe'">
+			<div class="vc-child">
+				<table>
+					<tr><td style="border-top: 0; border-left:0" 
+							data-bind="text: ticTacToe()[0]">
+						<td style="border-top: 0"
+							data-bind="text: ticTacToe()[1]">
+						<td style="border-top: 0; border-right: 0;"
+							data-bind="text: ticTacToe()[2]">
+					</tr>	
+					<tr>
+						<td style="border-left: 0"
+							data-bind="text: ticTacToe()[3]">
+						<td data-bind="text: ticTacToe()[4]">
+						<td style="border-right: 0"
+							data-bind="text: ticTacToe()[5]">
+					</tr>
+					<tr>
+						<td style="border-bottom: 0; border-left: 0" 
+							data-bind="text: ticTacToe()[6]">
+						<td style="border-bottom:0" 
+							data-bind="text: ticTacToe()[7]">
+						<td style="border-bottom: 0; border-right: 0" 
+							data-bind="text: ticTacToe()[8]"></tr>
+				</table>
+			</div>
+		</div>
+		<div class="content quote vc-parent"  data-bind="if: type() == 'quote'">
+			<div class="vc-child">
+				<blockquote>
+					<p data-bind="text: quote.quote"></p>
+					<cite data-bind="text: quote.author"></cite>
+				</blockquote>
+			</div>
+		</div>
+		<div class="content weather" data-bind="if: type() == 'weather'">
+			<section class="middling-container">
+		      <!-- ko if: weather.intent() == 'current' -->
+			  <section class="weather-1-day" style="display:flex; flex-direction: column;">
+			    <i data-bind="attr: {class: 'wi wi-' + weather.data()[0].icon}" style="flex:3; font-size: 5.5em;"></i>
+			    <span style="flex:1">Temperature: <span data-bind="text: weather.data()[0].temperature"></span>℃</span>
+			    <span style="flex:1">Humidity: <span data-bind="text: weather.data()[0].humidity"></span>%</span>
+			    <span style="flex:1">Pressure: <span data-bind="text: weather.data()[0].pressure"></span> millibars</span>
+			  </section>
+		      <!-- /ko -->
+		      <!-- ko if: weather.intent() == 'tomorrow' -->
+			  <section class="weather-1-day" style="display:flex; flex-direction: column;">
+			    <i data-bind="attr: {class: 'wi wi-' + weather.data()[0].icon}" style="flex:3; font-size: 5.5em;"></i>
+			    <span style="flex:1; display: flex">
+			      <span style="flex:1">Min Temp: <span data-bind="text: weather.data()[0].tempMin"></span>℃ </span>
+			      <span style="flex:1">Max Temp: <span data-bind="text: weather.data()[0].tempMax"></span>℃</span>
+			    </span>
+			    <span style="flex:1"><span data-bind="text: weather.data()[0].summary"></span>
+			  </section>
+		      <!-- /ko -->
+		      <!-- ko if: weather.intent() == '3-day' -->
+			  <section class="weather-3-day" style="display:flex;">
+		    	<span style="flex: 1;" class="vc-parent">
+			    	<i data-bind="attr: {class: 'vc-child wi wi-' + weather.data()[0].icon}" style="font-size: 3em;">
+			    		<span style="font-size: 0.2em"><br><span data-bind="text: weather.data()[0].day"></span></span>
+		    		</i>
+	    		</span>
+			  	<section style="flex: 3; display:flex; flex-direction: column;">
+				    <i data-bind="attr: {class: 'wi wi-' + weather.data()[1].icon}" style="flex:3; font-size: 5.5em;"></i>
+				    <span style="flex:1"><span data-bind="text: weather.data()[1].day"></span></span>
+				    <span style="flex:1; display: flex">
+				      <span style="flex:1">Min Temp: <span data-bind="text: weather.data()[1].tempMin"></span>℃ </span>
+				      <span style="flex:1">Max Temp: <span data-bind="text: weather.data()[1].tempMax"></span>℃</span>
+				    </span>
+				    <span style="flex:1;">
+				    	<span data-bind="text: weather.data()[1].summary">
+				    </span>
+			    </section>
+		    	<span style="flex: 1;" class="vc-parent">
+			    	<i data-bind="attr: {class: 'vc-child wi wi-' + weather.data()[0].icon}" style="font-size: 3em;">
+			    		<span style="font-size: 0.2em"><br><span data-bind="text: weather.data()[2].day"></span></span>
+		    		</i>
+	    		</span>
+			  </section>
+		      <!-- /ko -->
+		      <!-- ko if: weather.intent() == '7-day' -->
+			  <section class="weather-7-day" style="display:flex; flex-direction: column;">
+			    <i data-bind="attr: {class: 'vc-child wi wi-' + weather.data()[0].icon}" style="flex:3; font-size: 5.5em;"></i>
+			    <span style="flex:1"><span data-bind="text: weather.data()[0].day"></span></span>
+			    <span style="flex:1; display: flex">
+			      <span style="flex:1">Min Temp: <span data-bind="text: weather.data()[0].tempMin">℃</span>
+			      <span style="flex:1">Max Temp: <span data-bind="text: weather.data()[0].tempMax">℃</span>
+			    </span>
+			    <span style="flex:1;">
+			    	<span data-bind="text: weather.data()[0].summary">
+			    </span>
+		    	<div style="flex: 2; display: flex" class="vc-parent" data-bind="foreach: weather.data().slice(1)">
+			    	<i data-bind="attr: {class: 'vc-child wi wi-' + $data.icon}" style="font-size: 1.5em; flex: 1">
+			    		<span style="font-size: 0.4em"><br><span data-bind="text: $data.day"></span></span>
+		    		</i>
+	    		</div>
+			  </section>
+		      <!-- /ko -->
+		      <!-- ko if: weather.intent() == 'hourly' -->
+			  <section class="weather-7-day" style="display:flex; flex-direction: column;">
+			    <i data-bind="attr: {class: 'vc-child wi wi-' + weather.data()[0].icon}" style="flex:3; font-size: 5.5em;"></i>
+			    <span style="flex:1"><span data-bind="text: weather.data()[0].hour"></span></span>
+			    <span style="flex:1;">
+			      Temperature: <span data-bind="text: weather.data()[0].temp">℃</span>
+			    </span>
+		    	<div style="flex: 2; display: flex" class="vc-parent" data-bind="foreach: weather.data().slice(1)">
+			    	<i data-bind="attr: {class: 'vc-child wi wi-' + $data.icon}" style="font-size: 1.5em; flex: 1">
+			    		<span style="font-size: 0.4em"><br><span data-bind="text: $data.hour"></span></span>
+		    		</i>
+	    		</div>
+			  </section>
+		      <!-- /ko -->
+		</div>
+		<div class="content news" data-bind="if: type() == 'news'">
+			<h1> Recent News </h1>
+			<section data-bind="foreach: news">
+				<article style="display:flex">
+					<span data-bind="style: { backgroundImage: 'url(\'' + image() + '\')' }" style="flex:1;"></span>
+					<div style="flex:1;display: flex; flex-direction: column;">
+						<p style="flex:1"> <b data-bind="text: title"></b> </p>
+						<p
+							data-bind="text: description"
+							style="flex:4"> </p>
+					</div>
+				</article>
+			</section>
+		</div> 
+		<div class="content dictionary vc-parent" data-bind="if: type() == 'dictionary'">
+			<section class="vc-child">
+				<h3 data-bind="text: dictionary.word"></h3>
+				<div data-bind="foreach: dictionary.meanings">
+	 			    <div>
+	 			    	<b data-bind="text: $data.type"></b>
+	 			    	<div data-bind="foreach: $data.meanings">
+	 			    		<p data-bind="text: $data"></p>
+	 			    	</div>
+				    </div>
+				</div>
+			</section>
+		</div> 
+		<div class="content wikipedia vc-parent" data-bind="if: type() == 'wikipedia'">
+			<section class="vc-child">
+				<h3 data-bind="text: wikipedia.word"></h3>
+				<div>
+					<p data-bind="text: wikipedia.summary"></p>
+				</div>
+			</section>
+		</div>
+		<div class="content send-mail vc-parent" data-bind="if: type() == 'send-mail'">
+			<section class="vc-child" style="text-align: justify; padding: 0 20%">
+				<p>To: <span data-bind="text: smail.recipient"></span></p>
+				<p>Subject: <span data-bind="text: smail.subject"></span></p>
+				<div>
+					<p data-bind="text: smail.body"></p>
+				</div>
+			</section>
+		</div> 
+		<div class="content check-mail vc-parent" data-bind="if: type() == 'check-mail'">
+			<section class="vc-child" data-bind="foreach: cmails ">
+				<p><b data-bind="text: $data.from"></b> : <span data-bind="text: $data.subject"></span></p>
+			</section>
+		</div>
+		<div class="content time vc-parent" data-bind="if: type() == 'time'">
+			<section class="vc-child" style="font-size: 3em">
+				<span data-bind="text: time"></span>
+			</section>
+		</div> 
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-debug.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout.mapping/2.4.1/knockout.mapping.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+	<script src="script.js"></script>
+</body>
+</html>
